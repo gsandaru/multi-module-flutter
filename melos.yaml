@@ -1,0 +1,32 @@
+name: flutter_multi_module_project
+repository: https://github.com/your_username/flutter_multi_module_project
+
+packages:
+  - apps/**
+  - packages/**
+
+command:
+  version:
+    # Generate commit links in package changelogs.
+    linkToCommits: true
+    # Only allow versioning to happen on main branch.
+    branch: main
+    # Additionally build a changelog at the root of the workspace.
+    workspaceChangelog: true
+
+scripts:
+  analyze:
+    exec: dart analyze .
+    description: Analyze Dart code for all packages.
+
+  test:
+    exec: flutter test
+    description: Run Flutter tests for all packages.
+
+  clean:
+    exec: flutter clean
+    description: Clean all builds.
+
+  pub-get:
+    exec: flutter pub get
+    description: Get dependencies for all packages.
