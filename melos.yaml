@@ -6,6 +6,8 @@ packages:
   - packages/**
 
 command:
+  bootstrap:
+    usePubspecOverrides: true
   version:
     # Generate commit links in package changelogs.
     linkToCommits: true
@@ -30,3 +32,10 @@ scripts:
   pub-get:
     exec: flutter pub get
     description: Get dependencies for all packages.
+
+  build_runner:
+    run: dart run build_runner build --delete-conflicting-outputs
+    exec:
+      concurrency: 1
+    select-package:
+      depends-on: build_runner
